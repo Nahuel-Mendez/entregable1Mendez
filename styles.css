@@ -1,7 +1,177 @@
-* {
-  background-image: url(bancoweb.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: 100vh;
-  padding: 20px;
+* { box-sizing: border-box; }
+
+html, body { margin: 0; 
+  padding: 0; 
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial; }
+
+  :root {
+  --bg: #0b1220;
+  --card: #121a2b;
+  --muted: #8aa0b6;
+  --text: #e9eef6;
+  --primary: #5aa9ff;
+  --danger: #ff6b6b;
+  --border: #26324a;
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+header.container {
+  padding: 32px 0 8px;
+}
+h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+.subtitle {
+  color: var(--muted);
+  margin: 6px 0 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.producto {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+.producto h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.producto .precio {
+  font-weight: 700;
+}
+.btnRow {
+  display: flex;
+  gap: 8px;
+}
+button {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  color: var(--text);
+  background: #1a2440;
+}
+button.primary {
+  background: linear-gradient(180deg, #2a6bff, #1e54cc);
+  border-color: #1e54cc;
+}
+button.ghost {
+  background: transparent;
+}
+button.danger {
+  background: linear-gradient(180deg, #ff5a5a, #cc3c3c);
+  border-color: #cc3c3c;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+}
+.toolbar input,
+.toolbar select {
+  background: #101a33;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 12px;
+  flex: 1;
+}
+.form-grid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+}
+.form-grid input {
+  background: #101a33;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+.mt {
+  margin-top: 12px;
+}
+.muted {
+  color: var(--muted);
+}
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.item-carrito {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 8px;
+  padding: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.qty button {
+  padding: 6px 10px;
+}
+.totales {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.footer {
+  padding: 22px 0 40px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,14 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hola Mundo!</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Banco JS — Simulador</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
 
+  <!-- Body -->
+
   <body>
-    <h1>Bienvenido a tu banco de confianza.</h1>
-    <script src="main.js"></script>
+    <header class="container">
+      <h1>Banco Coder</h1>
+      <p class="subtitle">Utiliza nuestro banco de confianza.</p>
+    </header>
+
+    <!-- Registro Usuario -->
+
+    <main class="container grid">
+      <section class="card">
+        <h2>Tu cuenta</h2>
+
+        <div id="panelNoUsuario">
+          <form id="formRegistro" class="form-grid">
+            <input name="nombre" type="text" placeholder="Tu nombre" required />
+            <button class="primary" type="submit">Crear usuario</button>
+          </form>
+          <p class="muted mt">Crea el usuario para comenzar a operar.</p>
+        </div>
+
+        <div id="panelUsuario" class="hidden">
+          <div class="usuario">
+            <div>
+              <strong id="lblUsuario"></strong>
+              <div class="muted">ID: <span id="lblUsuarioId"></span></div>
+            </div>
+            <button id="btnCerrarSesion" class="ghost">Cerrar sesión</button>
+          </div>
+
+          <div class="saldo">
+            <span>Saldo actual</span>
+            <strong id="lblSaldo">$ 0,00</strong>
+          </div>
+
+          <div class="acciones">
+            <form id="formDeposito" class="inline-form">
+              <input
+                name="monto"
+                type="number"
+                step="0.01"
+                min="0.01"
+                placeholder="Monto a depositar"
+                required
+              />
+              <button class="primary" type="submit">Depositar</button>
+            </form>
+
+            <form id="formRetiro" class="inline-form">
+              <input
+                name="monto"
+                type="number"
+                step="0.01"
+                min="0.01"
+                placeholder="Monto a retirar"
+                required
+              />
+              <button class="danger" type="submit">Retirar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Movimientos -->
+      <section class="card">
+        <h2>Movimientos</h2>
+
+        <div class="toolbar">
+          <input
+            id="buscador"
+            type="search"
+            placeholder="Buscar por concepto..."
+          />
+          <select id="filtroTipo">
+            <option value="">Todos</option>
+            <option value="Deposito">Depósitos</option>
+            <option value="Retiro">Retiros</option>
+          </select>
+          <button id="btnLimpiarMovs" class="ghost">Limpiar historial</button>
+        </div>
+
+        <ul id="listaMovimientos" class="lista mt"></ul>
+
+        <div class="totales">
+          <span id="lblCantidad">0 movimientos</span>
+          <strong id="lblAcumulado">$ 0,00</strong>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <small>Banco CODER.</small>
+    </footer>
+
+    <script src="./main.js"></script>
   </body>
 </html>
